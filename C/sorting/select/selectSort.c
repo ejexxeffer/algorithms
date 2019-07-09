@@ -3,7 +3,7 @@
 
 int main()
 {		
-	int size, i, j, m = 0;
+	int size, i, j, min, f = 0;
 	// input values
 	printf("Please, size of an array.\n");
 	scanf("%d", &size);
@@ -37,19 +37,22 @@ int main()
 	}*/
 
 	// sorting
-	for (i = 0; i < size-1; i++)
+	for (i = 0; i < size; i++)
 	{
-		m = i;
-		for (j = i + 1; j < size-1 && j!=i; ++j)
+		min = i;
+		for (j = i + 1; j<=size; j++)
 		{
-			if (bls[j]<bls[m])
+			if (bls[j] < bls[min])
 			{
-				m = j;
+				min = j;
 			}
 		}
-		bls[j]=bls[i]^bls[j];
-		bls[i]=bls[i]^bls[j];
-		bls[j]=bls[i]^bls[j];
+		if (min != i)
+		{
+			bls[i]=bls[i]^bls[min];
+			bls[min]=bls[i]^bls[min];
+			bls[i]=bls[i]^bls[min];
+		}
 	}
 	
 	// export array
