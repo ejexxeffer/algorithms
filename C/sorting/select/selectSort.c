@@ -40,7 +40,7 @@ int main()
 	for (i = 0; i < size; i++)
 	{
 		min = i;
-		for (j = i + 1; j<=size; j++)
+		for (j = i + 1; j<size; j++)
 		{
 			if (bls[j] < bls[min])
 			{
